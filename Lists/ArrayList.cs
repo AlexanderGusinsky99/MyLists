@@ -81,7 +81,7 @@ namespace Lists
             }
             Length--;
         }
-        public void DeleteSeveralFromEnd(int n)
+        public void DeleteLastNElements(int n)
         {
             for (int i = 0; i < n; i++)
             {
@@ -217,6 +217,36 @@ namespace Lists
                 }
             }
             return minIndex;
+        }
+        public void SortFromMinToMax()
+        {
+            int tmpArray = _array[0];
+            for (int i = 0; i < _array.Length - 1; i++)
+            {
+                for (int j = 0; j < _array.Length - i - 1; j++)
+                {
+                    if (_array[j + 1] < _array[j])
+                    {
+                        tmpArray = _array[j + 1];
+                        _array[j + 1] = _array[j];
+                        _array[j] = tmpArray;
+                    }
+                }
+            }
+        }
+        public void SortFromMaxToMin()
+        {
+            for (int i = 1; i < _array.Length; i++)
+            {
+                int tmp = _array[i];
+                int j = i;
+                while (j > 0 && tmp < _array[j - 1])
+                {
+                    _array[j] = _array[j - 1];
+                    j--;
+                }
+                _array[j] = tmp;
+            }
         }
         private void UpSize()
         {
