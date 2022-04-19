@@ -58,6 +58,19 @@ namespace Lists
             _tail = new Node(value);
             _tail = _tail.Next;
         }
+        public void AddFirst(int value)
+        {
+            if (_root == null)
+            {
+                _root = new Node(value);
+            }
+            else
+            {
+                Node crnt = new Node(value);
+                crnt.Next = _root;
+                _root = crnt;
+            }
+        }
         public void DeleteByIndex(int index)
         {
             Node crnt = _root;
